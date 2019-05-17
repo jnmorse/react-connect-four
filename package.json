@@ -1,0 +1,59 @@
+{
+  "name": "react-connect-four",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Connect Four Game in React",
+  "keywords": [],
+  "homepage": "https://github.com/jnmorse/react-connect-four#readme",
+  "bugs": {
+    "url": "https://github.com/jnmorse/react-connect-four/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnmorse/react-connect-four.git"
+  },
+  "license": "MIT",
+  "author": "Joseph Morse <tamed.lionheart@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "prerelease": "npm run test",
+    "release": "standard-version",
+    "prechangelog": "rm CHANGELOG.md",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "eslint": "^5.16.0",
+    "eslint-config-jnmorse": "^2.2.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.1",
+    "standard-version": "^6.0.1"
+  }
+}

@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-size: 14px;
+  font-size: calc(14px + 0.7vw);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+}
+
+header p {
+  font-size: 1.3em;
+}
+
+header p, h1 {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+footer {
+  font-size: 0.8em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
