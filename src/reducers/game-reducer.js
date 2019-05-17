@@ -1,7 +1,6 @@
 const { GAME_WON } = require('../actions/types')
 
 export const defaultState = {
-  status: false,
   board: Array(7).fill(Array(6).fill(0))
 }
 
