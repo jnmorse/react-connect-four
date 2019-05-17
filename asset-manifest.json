@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jnmorse/react-connect-four/static/css/main.b8ae7c4b.chunk.css",
+    "main.js": "/jnmorse/react-connect-four/static/js/main.2cf7f703.chunk.js",
+    "main.js.map": "/jnmorse/react-connect-four/static/js/main.2cf7f703.chunk.js.map",
+    "runtime~main.js": "/jnmorse/react-connect-four/static/js/runtime~main.ab9f40d6.js",
+    "runtime~main.js.map": "/jnmorse/react-connect-four/static/js/runtime~main.ab9f40d6.js.map",
+    "static/js/2.60f1ba25.chunk.js": "/jnmorse/react-connect-four/static/js/2.60f1ba25.chunk.js",
+    "static/js/2.60f1ba25.chunk.js.map": "/jnmorse/react-connect-four/static/js/2.60f1ba25.chunk.js.map",
+    "index.html": "/jnmorse/react-connect-four/index.html",
+    "precache-manifest.5951c3bfd227bc51d8011c068f63359f.js": "/jnmorse/react-connect-four/precache-manifest.5951c3bfd227bc51d8011c068f63359f.js",
+    "service-worker.js": "/jnmorse/react-connect-four/service-worker.js",
+    "static/css/main.b8ae7c4b.chunk.css.map": "/jnmorse/react-connect-four/static/css/main.b8ae7c4b.chunk.css.map"
+  }
+}
