@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/jnmorse/react-connect-four/compare/v0.1.0...v0.2.0) (2019-05-17)
+
+
+### Features
+
+* **redux:** added redux to the app ([b7f13c2](https://github.com/jnmorse/react-connect-four/commit/b7f13c2))
+* **status-display:** added status display ([b2e532c](https://github.com/jnmorse/react-connect-four/commit/b2e532c))
+
+
+
 ## 0.1.0 (2019-05-17)
 
 
