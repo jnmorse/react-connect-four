@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/jnmorse/react-connect-four/compare/v0.2.0...v0.3.0) (2019-05-18)
+
+
+### Features
+
+* **game-board:** added game board ([f2f34c1](https://github.com/jnmorse/react-connect-four/commit/f2f34c1))
+
+
+
 ## [0.2.0](https://github.com/jnmorse/react-connect-four/compare/v0.1.0...v0.2.0) (2019-05-17)
 
 
