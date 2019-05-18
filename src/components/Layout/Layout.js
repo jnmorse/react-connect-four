@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 const Layout = ({ children, title, subtitle }) => (
   <>
-    <header>
+    <header style={{ marginBottom: '1em' }}>
       <h1>{title}</h1>
       {subtitle()}
     </header>
 
     <main>{children}</main>
 
-    <footer>
+    <footer style={{ marginTop: '1em', textAlign: 'center' }}>
       <small>&copy; 2019; Joseph Morse; MIT</small>
     </footer>
   </>
