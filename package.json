@@ -16,6 +16,7 @@
   "author": "Joseph Morse <tamed.lionheart@gmail.com>",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm run lint",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint .",
@@ -52,7 +53,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.0",
     "eslint": "^5.16.0",
-    "eslint-config-jnmorse": "^2.2.1",
+    "eslint-config-jnmorse": "^2.2.2",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "gh-pages": "^2.0.1",
