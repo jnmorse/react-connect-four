@@ -4,12 +4,13 @@ import store from '../../store'
 
 import Layout from '../Layout'
 import StatusDisplay from '../StatusDisplay'
+import GameBoard from '../GameBoard'
 
 const App = () => (
   <Provider store={store}>
     <Layout title="Connect Four">
       <StatusDisplay />
-      <p>This is where my board will go eventually</p>
+      <GameBoard board={[[]]} />
     </Layout>
   </Provider>
 )

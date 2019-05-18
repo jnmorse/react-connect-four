@@ -1,0 +1,17 @@
+.root {
+  display: block;
+  border: 1px solid grey;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  margin: 0 auto;
+}
+
+.board {
+  fill: blue;
+}
+
+.cells {
+  fill: black;
+  stroke: transparent;
+  stroke-width: 0;
+}
