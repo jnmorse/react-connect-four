@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/jnmorse/react-connect-four/compare/v0.3.0...v0.4.0) (2019-05-20)
+
+
+### Bug Fixes
+
+* **base-styles:** improve page layout ([d3b5e70](https://github.com/jnmorse/react-connect-four/commit/d3b5e70))
+* changed page title ([dec19e0](https://github.com/jnmorse/react-connect-four/commit/dec19e0))
+
+
+### Features
+
+* **reset-button:** added a reset button ([8d1a0b4](https://github.com/jnmorse/react-connect-four/commit/8d1a0b4))
+* added ability to make moves ([a9e4858](https://github.com/jnmorse/react-connect-four/commit/a9e4858))
+* added game logic for horizontal wins ([c3bda5d](https://github.com/jnmorse/react-connect-four/commit/c3bda5d))
+
+
+
 ## [0.3.0](https://github.com/jnmorse/react-connect-four/compare/v0.2.0...v0.3.0) (2019-05-18)
 
 
