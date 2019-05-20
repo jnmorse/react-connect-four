@@ -1,11 +1,15 @@
 import { connect } from 'react-redux'
 import GameBoard from './game-board'
 
-import { playerMove } from '../../actions'
+import { playerMove, gameWon } from '../../actions'
 
-const mapStateToProps = ({ game: { board } }) => ({ board })
+const mapStateToProps = ({ game: { board, lastMove, turn } }) => ({
+  board,
+  lastMove,
+  turn
+})
 
 export default connect(
   mapStateToProps,
-  { playerMove }
+  { playerMove, gameWon }
 )(GameBoard)

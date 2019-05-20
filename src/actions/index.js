@@ -1,4 +1,4 @@
-import { RESET_GAME, PLAYER_MOVE } from './types'
+import { RESET_GAME, PLAYER_MOVE, GAME_WON } from './types'
 
 function resetGame() {
   return {
@@ -6,8 +6,15 @@ function resetGame() {
   }
 }
 
+function gameWon(player) {
+  return {
+    type: GAME_WON,
+    payload: player
+  }
+}
+
 function playerMove(coords) {
   return { type: PLAYER_MOVE, payload: coords }
 }
 
-export { resetGame, playerMove }
+export { resetGame, playerMove, gameWon }

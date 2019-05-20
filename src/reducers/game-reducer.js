@@ -2,6 +2,7 @@ const { GAME_WON, RESET_GAME, PLAYER_MOVE } = require('../actions/types')
 
 export const defaultState = {
   turn: 1,
+  lastMove: false,
   board: Array(7).fill(Array(6).fill(0))
 }
 
@@ -18,17 +19,30 @@ export default function gameReducer(state = defaultState, action) {
     case PLAYER_MOVE: {
       const newBoard = [...state.board].map(col => [...col])
 
-      let y = false
+      const y = newBoard[action.payload.x].reduce((acc, cell, index) => {
+        switch (cell) {
+          case 0: {
+            return index
+          }
 
-      for (let i = newBoard[action.payload.x].length - 1; i > 0; i--) {
-        if (y === false && newBoard[action.payload.x][i] === 0) {
-          y = i
+          default: {
+            return acc
+          }
+        }
+      }, false)
+
+      if (y !== false) {
+        newBoard[action.payload.x][y] = state.turn
+
+        return {
+          ...state,
+          board: newBoard,
+          turn: state.turn === 1 ? 2 : 1,
+          lastMove: { ...action.payload, y }
         }
       }
 
-      newBoard[action.payload.x][y] = state.turn
-
-      return { ...state, board: newBoard, turn: state.turn === 1 ? 2 : 1 }
+      return { ...state }
     }
 
     default: {

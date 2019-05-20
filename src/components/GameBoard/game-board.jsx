@@ -23,13 +23,45 @@ function fill(player) {
   }
 }
 
-const GameBoard = ({ board, playerMove }) => {
+const min = num => Math.max(0, num)
+const max = num => Math.min(6, num)
+
+function checkHorizontalWin(board, turn, lastMove) {
+  const start = min(lastMove.x - 3)
+  const end = max(lastMove.x + 3)
+  const lastTurn = turn === 1 ? 2 : 1
+
+  let count = 0
+
+  for (let x = start; x <= end; x += 1) {
+    if (board[x][lastMove.y] === lastTurn) {
+      count += 1
+
+      if (count === 4) {
+        return true
+      }
+    } else {
+      count = 0
+    }
+  }
+
+  return false
+}
+
+/* eslint-disable max-lines-per-function */
+const GameBoard = ({ board, playerMove, gameWon, lastMove, turn }) => {
   const boardSize = {
     width: 450,
     height: 390
   }
 
   const offset = 40
+
+  if (lastMove) {
+    if (checkHorizontalWin(board, turn, lastMove)) {
+      gameWon(turn === 1 ? 2 : 1)
+    }
+  }
 
   const showBoard = board.map((column, x) =>
     column.map((cell, y) => (
@@ -58,10 +90,20 @@ const GameBoard = ({ board, playerMove }) => {
     </svg>
   )
 }
+/* eslint-enable max-lines-per-function */
 
 GameBoard.propTypes = {
   board: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  playerMove: PropTypes.func.isRequired
+  playerMove: PropTypes.func.isRequired,
+  lastMove: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired
+    })
+  ]).isRequired,
+  turn: PropTypes.number.isRequired,
+  gameWon: PropTypes.func.isRequired
 }
 
 export default GameBoard
