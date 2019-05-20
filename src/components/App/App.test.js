@@ -1,8 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Provider } from 'react-redux'
 
 import App from './App'
 import Layout from '../Layout'
+import Controls from '../Controls'
 
 let wrapper
 
@@ -11,11 +13,19 @@ describe('<App />', () => {
     wrapper = shallow(<App />)
   })
 
-  test('it should be a function component', () => {
-    expect(wrapper.instance()).toBe(null)
+  afterAll(() => {
+    wrapper.unmount()
   })
 
-  test('it should contain the Layout component', () => {
+  test('it should contain the <Layout />', () => {
     expect(wrapper.find(Layout)).toHaveLength(1)
+  })
+
+  test('it should contain <Controls />', () => {
+    expect(wrapper.find(Controls)).toHaveLength(1)
+  })
+
+  test('there should be a <Provider />', () => {
+    expect(wrapper.find(Provider)).toHaveLength(1)
   })
 })
