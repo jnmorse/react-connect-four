@@ -7,16 +7,35 @@ function boardKey(x, y) {
   return JSON.stringify({ x, y })
 }
 
-const GameBoard = ({ board }) => {
+function fill(player) {
+  switch (player) {
+    case 1: {
+      return styles.cellPlayer1
+    }
+
+    case 2: {
+      return styles.cellPlayer2
+    }
+
+    default: {
+      return styles.cellDefault
+    }
+  }
+}
+
+const GameBoard = ({ board, playerMove }) => {
   const boardSize = {
     width: 450,
     height: 390
   }
+
   const offset = 40
 
   const showBoard = board.map((column, x) =>
     column.map((cell, y) => (
       <circle
+        onClick={() => playerMove({ x, y })}
+        className={[styles.cell, fill(cell)].join(' ')}
         key={boardKey(x, y)}
         cx={x * 60 + offset}
         cy={y * 60 + offset}
@@ -41,7 +60,8 @@ const GameBoard = ({ board }) => {
 }
 
 GameBoard.propTypes = {
-  board: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired
+  board: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  playerMove: PropTypes.func.isRequired
 }
 
 export default GameBoard

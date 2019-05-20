@@ -1,18 +1,7 @@
-const types = {
-  GAME_WON: 'GAME_WON',
-  GAME_LOSS: 'GAME_LOSS',
-  GAME_TIED: 'GAME_TIED',
-  RESET_GAME: 'RESET_GAME'
-}
+const GAME_WON = 'game-won'
+const GAME_LOSS = 'game-loss'
+const GAME_TIED = 'game-tied'
+const RESET_GAME = 'reset-game'
+const PLAYER_MOVE = 'player-move'
 
-const typeValidator = {
-  get(obj, prop) {
-    if (obj[prop]) {
-      return obj[prop]
-    }
-
-    throw new TypeError(`${prop} is not a valid action type`)
-  }
-}
-
-module.exports = new Proxy(types, typeValidator)
+export { GAME_WON, GAME_LOSS, GAME_TIED, RESET_GAME, PLAYER_MOVE }

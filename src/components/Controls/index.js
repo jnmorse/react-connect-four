@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 
-import actions from '../../actions'
+import { resetGame } from '../../actions'
 import Controls from './Controls'
 
 export default connect(
   null,
-  actions
+  { resetGame }
 )(Controls)

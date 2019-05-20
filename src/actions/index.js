@@ -1,9 +1,13 @@
-const { RESET_GAME } = require('./types')
+import { RESET_GAME, PLAYER_MOVE } from './types'
 
-export function resetGame() {
+function resetGame() {
   return {
     type: RESET_GAME
   }
 }
 
-export default { resetGame }
+function playerMove(coords) {
+  return { type: PLAYER_MOVE, payload: coords }
+}
+
+export { resetGame, playerMove }
