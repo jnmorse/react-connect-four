@@ -23,29 +23,104 @@ function fill(player) {
   }
 }
 
-const min = num => Math.max(0, num)
-const max = num => Math.min(6, num)
+function isWin(segment, turn) {
+  const result = segment.filter(item => item === turn)
 
-function checkHorizontalWin(board, turn, lastMove) {
-  const start = min(lastMove.x - 3)
-  const end = max(lastMove.x + 3)
+  return result.length === 4
+}
+
+function checkHorizontalWin(board, turn, { x, y }) {
+  const startX = Math.max(x - 3, 0)
+  const endX = Math.min(x + 3, 6)
   const lastTurn = turn === 1 ? 2 : 1
 
-  let count = 0
+  for (let i = startX; i <= endX - 3; i += 1) {
+    const segment = [
+      board[i + 0][y],
+      board[i + 1][y],
+      board[i + 2][y],
+      board[i + 3][y]
+    ]
 
-  for (let x = start; x <= end; x += 1) {
-    if (board[x][lastMove.y] === lastTurn) {
-      count += 1
-
-      if (count === 4) {
-        return true
-      }
-    } else {
-      count = 0
+    if (isWin(segment, lastTurn)) {
+      return true
     }
   }
 
   return false
+}
+
+function checkVerticalWin(board, turn, { x, y }) {
+  const startY = Math.max(y - 3, 0)
+  const endY = Math.min(y + 3, 6)
+  const lastTurn = turn === 1 ? 2 : 1
+
+  for (let i = startY; i <= endY - 3; i += 1) {
+    const segment = [
+      board[x][i + 0],
+      board[x][i + 1],
+      board[x][i + 2],
+      board[x][i + 3]
+    ]
+
+    if (isWin(segment, lastTurn)) {
+      return true
+    }
+  }
+
+  return false
+}
+
+function checkForwardSlashWin(board, turn, lastMove) {
+  const startX = Math.max(lastMove.x - 3, 0)
+  const endX = Math.min(lastMove.x + 3, 6)
+  const startY = Math.max(lastMove.y - 3, 0)
+  const endY = Math.min(lastMove.y + 3, 5)
+  const lastTurn = turn === 1 ? 2 : 1
+  const segment = []
+
+  let x = startX
+  let y = startY
+
+  while (x < endX || y < endY) {
+    segment.push(board[x][y])
+
+    if (x < endX) {
+      x += 1
+    }
+
+    if (y < endY) {
+      y += 1
+    }
+  }
+
+  return isWin(segment, lastTurn)
+}
+
+function checkBackSlashWin(board, turn, lastMove) {
+  const startX = Math.min(lastMove.x + 3, 6)
+  const endX = Math.max(lastMove.x - 3, 0)
+  const startY = Math.min(lastMove.y + 3, 5)
+  const endY = Math.max(lastMove.y - 3, 0)
+  const lastTurn = turn === 1 ? 2 : 1
+  const segment = []
+
+  let x = startX
+  let y = endY
+
+  while (x > endX || y < endY) {
+    segment.push(board[x][y])
+
+    if (x > endX) {
+      x -= 1
+    }
+
+    if (y < startY) {
+      y += 1
+    }
+  }
+
+  return isWin(segment, lastTurn)
 }
 
 /* eslint-disable max-lines-per-function */
@@ -58,7 +133,12 @@ const GameBoard = ({ board, playerMove, gameWon, lastMove, turn }) => {
   const offset = 40
 
   if (lastMove) {
-    if (checkHorizontalWin(board, turn, lastMove)) {
+    if (
+      checkVerticalWin(board, turn, lastMove) ||
+      checkHorizontalWin(board, turn, lastMove) ||
+      checkForwardSlashWin(board, turn, lastMove) ||
+      checkBackSlashWin(board, turn, lastMove)
+    ) {
       gameWon(turn === 1 ? 2 : 1)
     }
   }
