@@ -123,14 +123,34 @@ function checkBackSlashWin(board, turn, lastMove) {
   return isWin(segment, lastTurn)
 }
 
+function checkForTie(board) {
+  const result = board
+    .map(column => column.filter(cell => cell !== 0))
+    .reduce((acc, column) => column.length + acc, 0)
+  if (result === 42) return true
+
+  return false
+}
+
 /* eslint-disable max-lines-per-function */
-const GameBoard = ({ board, playerMove, gameWon, lastMove, turn }) => {
+const GameBoard = ({
+  board,
+  playerMove,
+  gameWon,
+  gameTied,
+  lastMove,
+  turn
+}) => {
   const boardSize = {
     width: 450,
     height: 390
   }
 
   const offset = 40
+
+  if (checkForTie(board)) {
+    gameTied()
+  }
 
   if (lastMove) {
     if (
@@ -183,7 +203,8 @@ GameBoard.propTypes = {
     })
   ]).isRequired,
   turn: PropTypes.number.isRequired,
-  gameWon: PropTypes.func.isRequired
+  gameWon: PropTypes.func.isRequired,
+  gameTied: PropTypes.func.isRequired
 }
 
 export default GameBoard

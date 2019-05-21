@@ -1,15 +1,22 @@
-const { GAME_WON, RESET_GAME, PLAYER_MOVE } = require('../actions/types')
+const {
+  GAME_WON,
+  RESET_GAME,
+  PLAYER_MOVE,
+  GAME_TIED
+} = require('../actions/types')
 
 export const defaultState = {
   turn: 1,
   lastMove: false,
+  locked: false,
   board: Array(7).fill(Array(6).fill(0))
 }
 
 export default function gameReducer(state = defaultState, action) {
   switch (action.type) {
+    case GAME_TIED:
     case GAME_WON: {
-      return { ...state, status: 'won' }
+      return { ...state, locked: true }
     }
 
     case RESET_GAME: {
@@ -17,6 +24,10 @@ export default function gameReducer(state = defaultState, action) {
     }
 
     case PLAYER_MOVE: {
+      if (state.locked) {
+        return state
+      }
+
       const newBoard = [...state.board].map(col => [...col])
 
       const y = newBoard[action.payload.x].reduce((acc, cell, index) => {
