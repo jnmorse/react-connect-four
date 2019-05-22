@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/jnmorse/react-connect-four/compare/v0.4.0...v0.5.0) (2019-05-22)
+
+
+### Bug Fixes
+
+* diagonal win logic ([fecbf95](https://github.com/jnmorse/react-connect-four/commit/fecbf95))
+
+
+### Features
+
+* add tied state ([5cf8ed5](https://github.com/jnmorse/react-connect-four/commit/5cf8ed5))
+* added more game win logic ([febf902](https://github.com/jnmorse/react-connect-four/commit/febf902))
+
+
+
 ## [0.4.0](https://github.com/jnmorse/react-connect-four/compare/v0.3.0...v0.4.0) (2019-05-20)
 
 
