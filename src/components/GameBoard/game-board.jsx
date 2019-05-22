@@ -72,24 +72,30 @@ function checkVerticalWin(board, turn, { x, y }) {
 }
 
 function checkForwardSlashWin(board, turn, lastMove) {
-  const startX = Math.max(lastMove.x - 3, 0)
-  const endX = Math.min(lastMove.x + 3, 6)
-  const startY = Math.max(lastMove.y - 3, 0)
-  const endY = Math.min(lastMove.y + 3, 5)
+  const startX = lastMove.x - 3
+  const startY = lastMove.y - 3
+
+  const endX = lastMove.x + 3
+  const endY = lastMove.y + 3
+
   const lastTurn = turn === 1 ? 2 : 1
   const segment = []
 
   let x = startX
   let y = startY
 
-  while (x < endX || y < endY) {
-    segment.push(board[x][y])
+  while (x <= endX || y <= endY) {
+    if (x >= 0 && x <= 6) {
+      if (y >= 0 && y <= 5) {
+        segment.push(board[x][y])
+      }
+    }
 
-    if (x < endX) {
+    if (x <= endX) {
       x += 1
     }
 
-    if (y < endY) {
+    if (y <= endY) {
       y += 1
     }
   }
@@ -98,24 +104,29 @@ function checkForwardSlashWin(board, turn, lastMove) {
 }
 
 function checkBackSlashWin(board, turn, lastMove) {
-  const startX = Math.min(lastMove.x + 3, 6)
-  const endX = Math.max(lastMove.x - 3, 0)
-  const startY = Math.min(lastMove.y + 3, 5)
-  const endY = Math.max(lastMove.y - 3, 0)
+  const startX = lastMove.x + 3
+  const endX = lastMove.x - 3
+  const startY = lastMove.y - 3
+  const endY = lastMove.y + 3
+
   const lastTurn = turn === 1 ? 2 : 1
   const segment = []
 
   let x = startX
-  let y = endY
+  let y = startY
 
-  while (x > endX || y < endY) {
-    segment.push(board[x][y])
+  while (x >= endX || y <= endY) {
+    if (x >= 0 && x <= 6) {
+      if (y >= 0 && y <= 5) {
+        segment.push(board[x][y])
+      }
+    }
 
-    if (x > endX) {
+    if (x >= endX) {
       x -= 1
     }
 
-    if (y < startY) {
+    if (y <= endY) {
       y += 1
     }
   }
