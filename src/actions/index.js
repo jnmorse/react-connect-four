@@ -1,26 +1,6 @@
-import { RESET_GAME, PLAYER_MOVE, GAME_WON, GAME_TIED } from './types'
+import gameWon from './game-won'
+import resetGame from './reset-game'
+import gameTied from './game-tied'
+import playerMove from './player-move'
 
-function resetGame() {
-  return {
-    type: RESET_GAME
-  }
-}
-
-function gameWon(player) {
-  return {
-    type: GAME_WON,
-    payload: player
-  }
-}
-
-function gameTied() {
-  return {
-    type: GAME_TIED
-  }
-}
-
-function playerMove(coords) {
-  return { type: PLAYER_MOVE, payload: coords }
-}
-
-export { resetGame, playerMove, gameWon, gameTied }
+export { gameWon, resetGame, playerMove, gameTied }
