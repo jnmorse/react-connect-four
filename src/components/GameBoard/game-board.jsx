@@ -152,7 +152,6 @@ const GameBoard = ({
   lastMove,
   turn
 }) => {
-  console.log(lastMove)
   const boardSize = {
     width: 450,
     height: 390
