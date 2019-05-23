@@ -152,6 +152,7 @@ const GameBoard = ({
   lastMove,
   turn
 }) => {
+  console.log(lastMove)
   const boardSize = {
     width: 450,
     height: 390
@@ -177,7 +178,7 @@ const GameBoard = ({
   const showBoard = board.map((column, x) =>
     column.map((cell, y) => (
       <circle
-        onClick={() => playerMove({ x, y })}
+        onClick={() => playerMove(x)}
         className={[styles.cell, fill(cell)].join(' ')}
         key={boardKey(x, y)}
         cx={x * 60 + offset}

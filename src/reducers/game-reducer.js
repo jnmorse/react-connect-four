@@ -30,7 +30,7 @@ export default function gameReducer(state = defaultState, action) {
 
       const newBoard = [...state.board].map(col => [...col])
 
-      const y = newBoard[action.payload.x].reduce((acc, cell, index) => {
+      const y = newBoard[action.payload].reduce((acc, cell, index) => {
         switch (cell) {
           case 0: {
             return index
@@ -43,13 +43,13 @@ export default function gameReducer(state = defaultState, action) {
       }, false)
 
       if (y !== false) {
-        newBoard[action.payload.x][y] = state.turn
+        newBoard[action.payload][y] = state.turn
 
         return {
           ...state,
           board: newBoard,
           turn: state.turn === 1 ? 2 : 1,
-          lastMove: { ...action.payload, y }
+          lastMove: { x: action.payload, y }
         }
       }
 
