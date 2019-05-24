@@ -1,5 +1,5 @@
-import { GAME_WON, GAME_TIED, PLAYER_MOVE } from '../actions/types'
-import gameReducer from './game-reducer'
+import { GAME_WON, GAME_TIED, PLAYER_MOVE, RESET_GAME } from '../actions/types'
+import gameReducer, { defaultState } from './game-reducer'
 
 const playerMove = jest.fn(col => ({ type: PLAYER_MOVE, payload: col }))
 
@@ -23,6 +23,27 @@ test('when the playerMove action is called, the board is updated to reflect that
 
   expect(newState.board[3][5]).toEqual(1)
   expect(playerMove).toBeCalledTimes(1)
+  expect(newState.turn).toBe(2)
+})
+
+test('when reset the game should return the default state', () => {
+  const firstState = gameReducer(defaultState, playerMove(4))
+  const resetState = gameReducer(firstState, { type: RESET_GAME })
+
+  expect(resetState).not.toEqual(firstState)
+  expect(resetState).toEqual(defaultState)
+})
+
+test('i am unable to place a checker in a full column', () => {
+  const filledColumn = Array(6).fill(1)
+  const board = [...defaultState.board]
+  board[3] = filledColumn
+
+  const myState = { ...defaultState, turn: 2, board }
+
+  const newState = gameReducer(myState, playerMove(3))
+
+  expect(newState).toEqual(myState)
 })
 
 describe('when the game is tied or won, the board should be locked', () => {
