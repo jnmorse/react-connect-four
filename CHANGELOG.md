@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/jnmorse/react-connect-four/compare/v0.5.2...v0.5.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* was using slice incorrectly ([80e0dde](https://github.com/jnmorse/react-connect-four/commit/80e0dde))
+
+
+
 ### [0.5.2](https://github.com/jnmorse/react-connect-four/compare/v0.5.1...v0.5.2) (2019-05-24)
 
 
