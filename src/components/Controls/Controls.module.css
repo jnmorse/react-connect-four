@@ -1,7 +1,9 @@
 .root {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 50vmin;
+  gap: 1.5rem; */
+
   margin: 1rem auto 0;
-  gap: 1.5rem;
+  text-align: center;
 }
