@@ -24,17 +24,34 @@ function fill(player) {
 }
 
 function isWin(segment, turn) {
-  const result = segment.filter(item => item === turn)
+  let result = 0
 
-  return result.length === 4
+  for (let i = 0; i <= segment.length - 3; i += 1) {
+    const test = segment.slice(i, 4)
+
+    result = test.reduce((acc, cell) => {
+      if (cell === turn) {
+        const count = acc + 1
+        return count
+      }
+
+      return acc
+    }, 0)
+
+    if (result === 4) {
+      return true
+    }
+  }
+
+  return false
 }
 
 function checkHorizontalWin(board, turn, { x, y }) {
-  const startX = Math.max(x - 3, 0)
-  const endX = Math.min(x + 3, 6)
+  const startX = Math.max(x - 4, 0)
+  const endX = Math.min(x + 4, 6)
   const lastTurn = turn === 1 ? 2 : 1
 
-  for (let i = startX; i <= endX - 3; i += 1) {
+  for (let i = startX; i <= endX - 4; i += 1) {
     const segment = [
       board[i + 0][y],
       board[i + 1][y],
@@ -51,11 +68,11 @@ function checkHorizontalWin(board, turn, { x, y }) {
 }
 
 function checkVerticalWin(board, turn, { x, y }) {
-  const startY = Math.max(y - 3, 0)
-  const endY = Math.min(y + 3, 6)
+  const startY = Math.max(y - 4, 0)
+  const endY = Math.min(y + 4, 6)
   const lastTurn = turn === 1 ? 2 : 1
 
-  for (let i = startY; i <= endY - 3; i += 1) {
+  for (let i = startY; i <= endY - 4; i += 1) {
     const segment = [
       board[x][i + 0],
       board[x][i + 1],
