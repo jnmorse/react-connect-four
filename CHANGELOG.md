@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/jnmorse/react-connect-four/compare/v0.5.0...v0.5.1) (2019-05-24)
+
+
+### Bug Fixes
+
+* **player-move:** now only uses x coord ([a5dc612](https://github.com/jnmorse/react-connect-four/commit/a5dc612))
+* **status:** game won and tied messages ([627a54b](https://github.com/jnmorse/react-connect-four/commit/627a54b))
+* checks for diagonal causing erroneous wins ([faf3e4c](https://github.com/jnmorse/react-connect-four/commit/faf3e4c))
+* removed console log ([14bb0c7](https://github.com/jnmorse/react-connect-four/commit/14bb0c7))
+
+
+
 ## [0.5.0](https://github.com/jnmorse/react-connect-four/compare/v0.4.0...v0.5.0) (2019-05-22)
 
 
