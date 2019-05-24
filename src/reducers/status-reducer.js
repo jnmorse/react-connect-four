@@ -7,11 +7,11 @@ export default function statusReducer(state = false, action) {
     }
 
     case GAME_TIED: {
-      return 'Game is Tied'
+      return 'Game Tied'
     }
 
     case GAME_WON: {
-      return `Player ${action.payload} won`
+      return `Player ${action.payload} Won`
     }
 
     default: {
