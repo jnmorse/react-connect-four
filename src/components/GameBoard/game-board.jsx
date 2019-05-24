@@ -91,13 +91,8 @@ function checkForwardSlashWin(board, turn, lastMove) {
       }
     }
 
-    if (x <= endX) {
-      x += 1
-    }
-
-    if (y <= endY) {
-      y += 1
-    }
+    x += 1
+    y += 1
   }
 
   return isWin(segment, lastTurn)
@@ -122,13 +117,8 @@ function checkBackSlashWin(board, turn, lastMove) {
       }
     }
 
-    if (x >= endX) {
-      x -= 1
-    }
-
-    if (y <= endY) {
-      y += 1
-    }
+    x -= 1
+    y += 1
   }
 
   return isWin(segment, lastTurn)
