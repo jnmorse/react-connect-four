@@ -24,12 +24,10 @@ function fill(player) {
 }
 
 function isWin(segment, turn) {
-  let result = 0
-
   for (let i = 0; i <= segment.length - 3; i += 1) {
-    const test = segment.slice(i, 4)
+    const test = segment.slice(i, i + 4)
 
-    result = test.reduce((acc, cell) => {
+    const result = test.reduce((acc, cell) => {
       if (cell === turn) {
         const count = acc + 1
         return count
