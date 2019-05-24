@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/jnmorse/react-connect-four/compare/v0.5.1...v0.5.2) (2019-05-24)
+
+
+### Bug Fixes
+
+* more fixes for win logic ([8e8f2ad](https://github.com/jnmorse/react-connect-four/commit/8e8f2ad))
+
+
+
 ### [0.5.1](https://github.com/jnmorse/react-connect-four/compare/v0.5.0...v0.5.1) (2019-05-24)
 
 
