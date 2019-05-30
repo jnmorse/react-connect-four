@@ -4,13 +4,10 @@
     "jest": true
   },
 
-  "plugins": ["prettier"],
-
-  "extends": ["jnmorse", "plugin:prettier/recommended", "prettier/react"],
+  "extends": ["jnmorse"],
 
   "rules": {
     "import/no-relative-parent-imports": "off",
-    "import/no-unused-modules": "off",
-    "prettier/prettier": "error"
+    "import/no-unused-modules": "off"
   }
 }
